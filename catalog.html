@@ -4,47 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
     <title>Каталог товаров</title>
 </head>
-<body class="mainbody">
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="mainbody justify-content-center">
+<header class="bg-dark text-white p-3">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">магазинчик</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto" style= "align-items: center;">
-              <li class="nav-item my-auto">
-                <a class="nav-link active" aria-current="page" href="#">Главна страница</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Логин</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Корзина</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Акции
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <a class="navbar-brand" href="#">Акции</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="акции.html">Акции</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#promotions">Корзина</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Логин</a></li>
                 </ul>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </nav>
+    </nav>
 </header>
 <section class="catalog">
     
-    <div class="row m-0 p-0 row-cols-2 row-cols-lg-4">
-        <div class="col col-sm-3">
+    <div class="row m-3 p-3 row-cols-2 row-cols-lg-4 justify-content-lg-center justify-content-sm-start" >
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -54,7 +40,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -64,7 +50,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -74,7 +60,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -84,7 +70,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -94,7 +80,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -104,7 +90,7 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU"
                      alt="Товар 1">
@@ -114,9 +100,9 @@
                 <button class="add-to-cart">Добавить в корзину</button>
             </div>
         </div>
-        <div class="col col-sm-3">
+        <div class="col col-sm-3" style="margin: 1px;">
             <div class="product">
-                <img src="https://totti-shop.ru/_next/image?url=https%3A%2F%2Ftotti-shop.ru%2Fupload%2Fwebp-cache%2Fupload%2Fiblock%2Fc87%2Fw9hpv4crntpe7s8gwmhh6e9tjtsl3iuc.webp&w=750&q=100" alt="Товар 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" alt="Товар 2">
                 <h3>Товар 2</h3>
                 <p>Удобные и легкие штаны по низкой цене</p>
                 <span class="price">Цена: $15</span>
@@ -125,5 +111,24 @@
         </div>
     </div>
 </section>
+
+<footer class="bg-dark text-white py-3">
+    <div class="container">
+        <div>
+            <h3>Свяжитесь с нами</h3>
+            <p>Телефон: +1 123-456-789</p>
+            <p>Email: info@example.com</p>
+        </div>
+        <div>
+            <h3>Мы в социальных сетях</h3>
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>-->
 </body>
 </html>
