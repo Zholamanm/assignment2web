@@ -1,0 +1,18 @@
+.nav-item.dropdown .dropdown-toggle::after {
+    display: none;
+}
+
+/* Main */
+
+.cards{
+    background-color: rgb(212, 211, 211);
+    border-radius: 0.5em;
+}
+.card-img{
+    border-radius: 0.5em;
+    border: none;
+}
+
+.btn-pay{   
+    background-color:rgb(95, 194, 192);
+}

@@ -1,0 +1,17 @@
+/*.carousel-control-prev, .carousel-control-next {*/
+/*    position: absolute;*/
+/*    top: 50%; !* Центрировать по вертикали *!*/
+/*    transform: translateY(-50%);*/
+/*    width: auto; !* Возвращаем автоматическую ширину *!*/
+/*    height: auto; !* Возвращаем автоматическую высоту *!*/
+/*}*/
+/*.carousel-control-prev {*/
+/*    left: 50px; !* Расположить слева от карусели *!*/
+/*}*/
+/*.carousel-control-next {*/
+/*    right: 50px; !* Расположить справа от карусели *!*/
+/*}*/
+.carousel-inner img {
+    height: 600px;  /* или любое другое значение */
+    object-fit: fill;
+}
