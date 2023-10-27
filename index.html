@@ -32,12 +32,9 @@
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-black rounded-3" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-        </div>
+
+
+
         <div id="myCarousel" class="carousel slide col-md-12" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -55,7 +52,6 @@
                         <div class="carousel-caption text-start">
                             <h1>Example headline.</h1>
                             <p>Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +61,6 @@
                         <div class="carousel-caption">
                             <h1>Another example headline.</h1>
                             <p>Some representative placeholder content for the second slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
                         </div>
                     </div>
                 </div>
@@ -75,7 +70,6 @@
                         <div class="carousel-caption text-end">
                             <h1>One more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>
@@ -85,7 +79,6 @@
                         <div class="carousel-caption text-end">
                             <h1>Oe more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +88,6 @@
                         <div class="carousel-caption text-end">
                             <h1>O more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +97,6 @@
                         <div class="carousel-caption text-end">
                             <h1>e more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>
@@ -115,10 +106,17 @@
                         <div class="carousel-caption text-end">
                             <h1>n more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-black rounded-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-black rounded-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
         <script>
@@ -126,34 +124,30 @@
 
                 const myCarousel = document.querySelector('#myCarousel');
 
-                // Инициализация карусели
+
                 const carouselInstance = new bootstrap.Carousel(myCarousel, {
-                    interval: 2000, // Задержка перед автоматическим переключением слайдов (в миллисекундах)
-                    wrap: true,     // Если false, карусель не будет цикличной
-                    keyboard: true, // Управление каруселью с помощью клавиш "стрелка влево" и "стрелка вправо"
-                    pause: 'hover'  // Приостановка карусели при наведении курсора
+                    interval: 2000,
+                    wrap: true,
+                    keyboard: true,
+                    pause: 'hover'
                 });
 
-                // Назначение обработчиков для кнопок "предыдущий" и "следующий"
                 const prevButton = document.querySelector('.carousel-control-prev');
                 const nextButton = document.querySelector('.carousel-control-next');
 
                 prevButton.addEventListener('click', function() {
-                    carouselInstance.prev(); // Переключение на предыдущий слайд
+                    carouselInstance.prev();
                 });
 
                 nextButton.addEventListener('click', function() {
-                    carouselInstance.next(); // Переключение на следующий слайд
+                    carouselInstance.next();
                 });
             });
 
         </script>
-        <div class="col-md-3">
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-black rounded-3" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+
+
+
     </div>
 </div>
 <div class="bg-warning text-center py-5">
