@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Онлайн магазин</title>
+</head>
+
+<body class="bg-light">
+
+    <header class="bg-dark text-white p-3">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Главная страница</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="catalog.html">Главная страница</a></li>
+                        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+                        <li class="nav-item"><a class="nav-link" href="akcii.html">Акции</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cart">Корзина</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="login.html">Логин</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="bg-warning">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <label for="username" class="fs-3">Username</label>
+                    <input type="text" class="form-control p" id="username" placeholder="Username" onblur="isUserEmpty()">
+                    <p class="text-danger m-0" id="error-message-user"></p><br>
+                </div>
+
+                <div class="w-100"></div>
+
+                <div class="col-4">
+                    <label for="email" class="fs-3" >Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" onblur="isVaidateEmail()" >
+                    <p class="text-danger m-0" id="error-message-email"></p><br>
+                </div>
+
+                <div class="w-100"></div>
+
+                <div class="col-4">
+                    <label for="password" class="fs-3" >Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" onblur="isVaidatePassword()">
+                    <p class="text-danger m-0" id="error-message-password"></p><br>
+                </div>
+
+                <div class="w-100"></div>
+
+                <div class="col-4 container-fluid">
+                    <button type="button" class="btn btn-light" onclick="validateForm()">Login</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5" id="connect">
+        <div class="container">
+            <div>
+                <h3>Свяжитесь с нами</h3>
+                <p>Телефон: +1 123-456-789</p>
+                <p>Email: info@example.com</p>
+            </div>
+            <div>
+                <h3>Мы в социальных сетях</h3>
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scr.js"></script>
+    
+</body>
+
+</html>
