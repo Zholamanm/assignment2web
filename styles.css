@@ -12,6 +12,13 @@
 /*    right: 50px; !* Расположить справа от карусели *!*/
 /*}*/
 .carousel-inner img {
-    height: 600px;  /* или любое другое значение */
+    height: 600px;
+    /* или любое другое значение */
     object-fit: fill;
+}
+
+.redDot {
+    content: "•"; /* Use the bullet character as a red dot */
+    color: red; /* Color of the dot */
+    margin-right: 4px; /* Adjust the spacing between the dot and the text */
 }
