@@ -90,28 +90,3 @@ buyButton.addEventListener("click", function() {
         alert("Подумайте");
     }
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    updateHeader();
-});
-function updateHeader() {
-    const userData = JSON.parse(localStorage.getItem('user'));
-    var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (isLoggedIn && userData && userData.username) {
-        document.getElementById('username').textContent = userData.username;
-        document.getElementById('userItem').style.display = 'block';
-        document.getElementById('logoutItem').style.display = 'block';
-        document.getElementById('loginItem').style.display = 'none';
-        document.getElementById('regItem').style.display = 'none';
-
-        document.getElementById('logout').addEventListener('click', function() {
-            document.getElementById('userItem').style.display = 'none';
-            document.getElementById('logoutItem').style.display = 'none';
-            document.getElementById('loginItem').style.display = 'block';
-            document.getElementById('regItem').style.display = 'block';
-            localStorage.setItem('isLoggedIn', 'false');
-            updateHeader();
-            window.location.reload();
-        });
-    }
-}

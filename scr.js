@@ -7,7 +7,7 @@ function validateForm() {
 
 
 function isUserEmpty() {
-    document.getElementcById('error-message-user').innerHTML = "";
+    document.getElementById('error-message-user').innerHTML = "";
     var username = document.getElementById('username').value;
     if (username == null || username == "") {
         document.getElementById('error-message-user').innerHTML = "Username is empty";
@@ -62,21 +62,17 @@ function loginUser() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password-input').value;
 
-    var storedData = localStorage.getItem('user');
-    var userData = JSON.parse(storedData);
-    console.log(userData.email);
-    console.log(userData.password);
-    console.log(userData.username);
-    if (userData) {
-        if (username === userData.username && email === userData.email && password === userData.password) {
-            alert('Login successful!');
-            window.location.href = 'index.html';
-            localStorage.setItem('isLoggedIn', 'true');
-        } else {
-            alert('Неправильное имя пользователя или пароль!');
-        }
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var foundUser = users.find(function(user) {
+        return user.username === username && user.email === email && user.password === password;
+    });
+
+    if (foundUser) {
+        alert('Login successful!');
+        foundUser.isLoggedIn = true; // Устанавливаем флаг вошедшего пользователя в true
+        localStorage.setItem('users', JSON.stringify(users)); // Сохраняем обновленные данные пользователей
+        window.location.href = 'index.html';
     } else {
-        alert('Нет зарегистрированных пользователей.');
+        alert('Неправильное имя пользователя или пароль!');
     }
 }
-

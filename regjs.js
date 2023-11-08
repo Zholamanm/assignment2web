@@ -5,17 +5,34 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     var email = document.getElementById('email').value;
     var password = document.getElementById('password-input').value;
 
-    var user = {
+    var newUser = {
         username: username,
         email: email,
         password: password,
+        isLoggedIn: 'true',
     };
 
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('isLoggedIn', 'true');
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Проверяем, существует ли уже пользователь с таким же username или email
+    var userExists = users.some(function(user) {
+        return user.username === newUser.username || user.email === newUser.email;
+    });
+
+    if (userExists) {
+        alert('Пользователь с таким именем или почтой уже существует!');
+        return;
+    }
+
+    // Добавляем нового пользователя в массив
+    users.push(newUser);
+
+    // Здесь мы сохраняем обновленный массив users, а не одиночный объект user
+    localStorage.setItem('users', JSON.stringify(users));
     alert('Регистрация успешна!');
     window.location.href='index.html';
 });
+
 addEventListener("DOMContentLoaded", (event) => {
     const password = document.getElementById("password-input");
     const passwordAlert = document.getElementById("password-alert");
