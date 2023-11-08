@@ -7,7 +7,7 @@ function validateForm() {
 
 
 function isUserEmpty() {
-    document.getElementById('error-message-user').innerHTML = "";
+    document.getElementcById('error-message-user').innerHTML = "";
     var username = document.getElementById('username').value;
     if (username == null || username == "") {
         document.getElementById('error-message-user').innerHTML = "Username is empty";
@@ -56,3 +56,27 @@ function isVaidatePassword() {
         return true
     }
 }
+function loginUser() {
+    // Retrieve user input
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password-input').value;
+
+    var storedData = localStorage.getItem('user');
+    var userData = JSON.parse(storedData);
+    console.log(userData.email);
+    console.log(userData.password);
+    console.log(userData.username);
+    if (userData) {
+        if (username === userData.username && email === userData.email && password === userData.password) {
+            alert('Login successful!');
+            window.location.href = 'index.html';
+            localStorage.setItem('isLoggedIn', 'true');
+        } else {
+            alert('Неправильное имя пользователя или пароль!');
+        }
+    } else {
+        alert('Нет зарегистрированных пользователей.');
+    }
+}
+

@@ -20,7 +20,14 @@
                     <li class="nav-item"><a class="nav-link active" href="catalog.html">Каталог</a></li>
                     <li class="nav-item"><a class="nav-link" href="akcii.html">Акции</a></li>
                     <li class="nav-item"><a class="nav-link" href="busket.html">Корзина</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Логин</a></li>
+                    <li class="nav-item" id="userItem" style="display: none;">
+                        <a class="nav-link" href="#" id="username">Username</a>
+                    </li>
+                    <li class="nav-item" id="logoutItem" style="display: none;">
+                        <a class="nav-link" href="#" id="logout">Logout</a>
+                    </li>
+                    <li class="nav-item" id="loginItem"><a class="nav-link" href="login.html">Логин</a></li>
+                    <li class="nav-item" id="regItem"><a class="nav-link" href="reg.html">Регистрация</a></li>
                 </ul>
             </div>
         </div>
@@ -31,22 +38,24 @@
         <div class="row row-cols-1 row-cols-md-2 g-4 mb-4 mt-3">
             <div class="col">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
+                    <img id="itemid" src="hoodie.jfif" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Товар 1</h5>
                         <p class="card-text">Новый джэмпер высшего качества</p>
                         <span class="price">Цена: $10</span>
+                        <button id="item" value="hoodie1&" onclick="addToString(item.value, itemid.getAttribute('src'))"></button>
                         <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
+                    <img id="item2id" src="hoodie.jfif" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Товар 2</h5>
                         <p class="card-text">Новый джэмпер высшего качества</p>
                         <span class="price">Цена: $10</span>
+                        <button id="item2" value="hoodie2&" onclick="addToString(item2.value, item2id.getAttribute('src'))"></button>
                         <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
@@ -136,5 +145,54 @@
     </div>
 </footer>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    var str = '';
+    var img ='';
+    function addToString(strtoadd, imgsrc) {
+        str+=strtoadd;
+        img+=imgsrc;
+    }
+    document.addEventListener("click", function(e) {
+        if(str!==''){
+            if (confirm("Вы уверены, что хотите продолжить?")) {
+                // пользователь нажал "OK"
+                console.log("Пользователь подтвердил действие.");
+            } else {
+                // пользователь нажал "Отмена"
+                location.href='busket.html?'+str + img +'&';
+            }
+        }
+        else{
+            console.log("NET NIHYA")
+        }
+    });
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        updateHeader();
+    });
+    function updateHeader() {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        if (isLoggedIn && userData && userData.username) {
+            document.getElementById('username').textContent = userData.username;
+            document.getElementById('userItem').style.display = 'block';
+            document.getElementById('logoutItem').style.display = 'block';
+            document.getElementById('loginItem').style.display = 'none';
+            document.getElementById('regItem').style.display = 'none';
+
+            document.getElementById('logout').addEventListener('click', function() {
+                document.getElementById('userItem').style.display = 'none';
+                document.getElementById('logoutItem').style.display = 'none';
+                document.getElementById('loginItem').style.display = 'block';
+                document.getElementById('regItem').style.display = 'block';
+                localStorage.setItem('isLoggedIn', 'false');
+                updateHeader();
+                window.location.reload();
+            });
+        }
+    }
+</script>
 </body>
 </html>

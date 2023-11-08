@@ -7,9 +7,9 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="shortcut icon" href="static/images/logo.ico" type="image/x-icon">
+<!--    <link rel="shortcut icon" href="static/images/logo.ico" type="image/x-icon">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/style/busket-style.css">
+    <link rel="stylesheet" href="busket-style.css">
 </head>
 
 <body>
@@ -27,7 +27,14 @@
                             <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
                             <li class="nav-item"><a class="nav-link" href="akcii.html">Акции</a></li>
                             <li class="nav-item"><a class="nav-link active" href="busket.html">Корзина</a></li>
-                            <li class="nav-item"><a class="nav-link" href="login.html">Логин</a></li>
+                            <li class="nav-item" id="userItem" style="display: none;">
+                                <a class="nav-link" href="#" id="username">Username</a>
+                            </li>
+                            <li class="nav-item" id="logoutItem" style="display: none;">
+                                <a class="nav-link" href="#" id="logout">Logout</a>
+                            </li>
+                            <li class="nav-item" id="loginItem"><a class="nav-link" href="login.html">Логин</a></li>
+                            <li class="nav-item" id="regItem"><a class="nav-link" href="reg.html">Регистрация</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,9 +108,6 @@
                                 <div class="col-lg-12">
                                   <div class="products">
                                     <div class="pictures" id="pictures">
-                                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" alt="picture" class="img-fluid" width="55px">
-                                      <img src="https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/745/737/assets/230501_12-M5091_G_DP_Shorts.jpg" alt="picture" class="img-fluid" width="55px">
-                                      <img src="https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/745/737/assets/230501_12-M5091_G_DP_Shorts.jpg" alt="picture" class="img-fluid" width="55px">
                                     </div>
                                   </div>
                                 </div>
