@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Каталог товаров</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Главная страница</a></li>
                     <li class="nav-item"><a class="nav-link active" href="catalog.html">Каталог</a></li>
                     <li class="nav-item"><a class="nav-link" href="akcii.html">Акции</a></li>
-                    <li class="nav-item"><a class="nav-link" href="busket.html">Корзина</a></li>
+                    <li class="nav-item busket"><a class="nav-link" href="busket.html">Корзина</a></li>
                     <li class="nav-item" id="userItem" style="display: none;">
                         <a class="nav-link" href="#" id="username">Username</a>
                     </li>
@@ -35,92 +36,29 @@
 </header>
 <section class="catalog">
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 g-4 mb-4 mt-3">
+        <div class="row row-cols-1 row-cols-md-2 g-4 mb-4 mt-3" >
             <div class="col">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 1</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
+                    <img id="photoHoodie" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Товар 2</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <p class="card-text" id="hoodie">Новый джэмпер высшего качества</p>
+                        <span class="price" id="price1">Цена: $10</span>
+                        <a href="#" class="btn btn-primary" onclick="addToBusketHoodie(event);">Add to Cart</a>
+                        <input type="text" id="hoodiequant" value="1">
+
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
+                    <img id="photoShorti" src="https://oldnavy.gap.com/Asset_Archive/ONWeb/content/0029/745/737/assets/230501_12-M5091_G_DP_Shorts.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Товар 3</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 4</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 5</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 6</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 7</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzzclhdAHD3w03HcIgi0sW2XNQIzA76dHtg&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Товар 8</h5>
-                        <p class="card-text">Новый джэмпер высшего качества</p>
-                        <span class="price">Цена: $10</span>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <p class="card-text" id="shorti">Шорты</p>
+                        <span class="price" id="shortiPrice">Цена: $5</span>
+                        <a href="#" class="btn btn-primary" onclick="addToBusketShorti(event);">Add to Cart</a>
+                        <input type="text" id="shortiquant" value="1">
                     </div>
                 </div>
             </div>
@@ -144,5 +82,6 @@
 </footer>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script src="catalog.js"></script>
 </body>
 </html>

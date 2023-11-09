@@ -1,92 +1,72 @@
-var firstValue = document.getElementById("hudi").textContent.replace(/\$/g, "").trim();
-var secondValue = document.getElementById("shorti").textContent.replace(/\$/g, "").trim();
-var thirdValue = document.getElementById("shorti").textContent.replace(/\$/g, "").trim();
-var checkbox = document.getElementById("flexCheckDefault");
-var dostavka = document.getElementById("dostavka").textContent.replace(/\$/g, "").trim();
+window.addEventListener('load', function () {
 
+    const hoodie = localStorage.getItem('hoodie');
+    const shorti = localStorage.getItem('shorti');
 
-var firstPrice = parseFloat(firstValue);
-var secondPrice = parseFloat(secondValue);
-var thirdPrice = parseFloat(thirdValue);
+    let hoodieString = JSON.parse(hoodie);
+    let shortiString = JSON.parse(shorti);
 
+    let totalQuantity = 0;
+    let total = 0;
+    let hoodiePrice = 0;
+    let shortiPrice = 0;
+    let hoodieQuantity = 0;
+    let shortiQuantity = 0;
+    if (hoodieString) {
+        document.getElementById('resultHoodie').innerHTML = hoodieString.hoodie;
+        hoodiePrice = parseInt(hoodieString.priceOfHoodie);
+        hoodieQuantity = parseInt(hoodieString.quant);
+        const hoodieList = document.getElementById('hoodieContainer'); // Используйте уникальный идентификатор
+        hoodieList.innerHTML = '';
 
-var totalAmount = firstPrice + secondPrice + thirdPrice;
-
-// document.getElementById("total").textContent = totalAmount + "$";
-
-// document.getElementById("skidka").textContent = sale();
-
-function sale(){
-    if(secondValue == thirdValue){
-        return "2 шорты подарок";
+        let hoodieDiv = document.createElement('div');
+        hoodieDiv.innerHTML = `
+        <p>Hoodie: <label data-type="text">${hoodieString.hoodie}</label></p>
+        <p>Price: <label data-type="number">${hoodieString.priceOfHoodie}</label></p>
+        <p>Photo: <img src="${hoodieString.photoOfHoodie}" id="hoodieimg"></p>
+    `;
+        hoodieList.appendChild(hoodieDiv);
+    } else {
+        console.log('Данные не найдены в localStorage или не могут быть разобраны в объекты JSON.');
     }
-    else{
-        return 0;
+    if (shortiString) {
+        document.getElementById('resultShorti').innerHTML = shortiString.shorti;
+        shortiPrice = parseInt(shortiString.shortiPrice);
+        shortiQuantity = parseInt(shortiString.quant);
+        const shortiList = document.getElementById('shortiContainer'); // Используйте уникальный идентификатор
+        shortiList.innerHTML = '';
+
+        let shortiDiv = document.createElement('div');
+        shortiDiv.innerHTML = `
+        <p>Shorti: <label data-type="text">${shortiString.shorti}</label></p>
+        <p>Price: <label data-type="text">${shortiString.shortiPrice}</label></p>
+        <p>Photo: <img src="${shortiString.photoShorti}" id="shortiimg"></p>
+    `;
+        shortiList.appendChild(shortiDiv);
+    } else {
+        console.log('Данные не найдены в localStorage или не могут быть разобраны в объекты JSON.');
     }
-}
-
-var dostavka = document.getElementById("dostavka").textContent.replace(/\$/g, "").trim();
-var dostavkaPrice = parseFloat(dostavka);
-
-var finalAmount = totalAmount+dostavkaPrice;
-
-// document.getElementById("final").textContent = finalAmount + "$" + " + 2 шорт в подарок";
-
-var buyButton = document.getElementById("buy");
-
-var all = 3;
-
-document.addEventListener("change", function(e) {
-    if (e.target.matches("#flexCheckDefault, #flexCheckDefault1, #flexCheckDefault2")) {
-        var count = 0;
-        var price = 0;
-        var skidka = "";
-        var final = 0;
-        var item1 = document.getElementById('flexCheckDefault').checked;
-        if(item1 === true){
-            count++;
-            price += firstPrice;
+    document.getElementById('buyButton').onclick = function () {
+        var yesOrno = prompt("Вы уверены? да или нет")
+        if(yesOrno.toLowerCase() === "да"){
+            alert("Поздравляем! Ваш заказ успешно оформлен!");
+            localStorage.removeItem('hoodie');
+            localStorage.removeItem('shorti');
         }
-        var item2 = document.getElementById('flexCheckDefault1').checked;
-        if(item2 === true){
-            count++;
-            price += secondPrice;
+        else{
+            alert("Подумайте");
         }
-        var item3 = document.getElementById('flexCheckDefault2').checked;
-        if(item3 === true){
-            count++;
-            price += thirdPrice;
-        }
-        if(item2 === true && item3 === true) {
-            document.getElementById("skidka").textContent = sale();
-            skidka = "2 шорт в подарок"
-        }
-        else {
-            document.getElementById("skidka").textContent = "Нет скидки";
-        }
-        final = parseInt(dostavka) + price;
-        document.getElementById('count').innerHTML = count;
-        document.getElementById('total').textContent = price + '$';
-        document.getElementById("final").textContent = final + "$" + " " + skidka;
     }
+    var skidka = shortiQuantity >= 2 ? "2 шорты в подарок" : "Нет скидки";
+    totalQuantity = hoodieQuantity + shortiQuantity;
+    total = hoodiePrice + shortiPrice;
+    var dostavka = document.getElementById("dostavka").textContent.replace(/\$/g, "").trim();
+    var final = total + parseInt(dostavka);
+    document.getElementById('count').innerHTML = totalQuantity.toString();
+    document.getElementById('total').innerHTML = total.toString() + '$';
+    document.getElementById("skidka").textContent = skidka;
+    document.getElementById("final").textContent = final + "$" + " + " + skidka;
+
 });
 
-buyButton.addEventListener("click", function() {
-    var yesOrno = prompt("Вы уверены? да или нет")
-    if(yesOrno.toLowerCase() === "да"){
-        var countdown = 3;
-        for (var i = countdown; i >= 0; i--) {
-            if (i === 0) {
-                alert("Поздравляем! Ваш заказ успешно оформлен!");
 
-            } else {
-                alert("Обратный отсчет: " + i);
-                countdown--;
-
-            }
-        }
-    }
-    else{
-        alert("Подумайте");
-    }
-});
