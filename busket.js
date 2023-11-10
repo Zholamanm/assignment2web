@@ -16,14 +16,25 @@ window.addEventListener('load', function () {
         document.getElementById('resultHoodie').innerHTML = hoodieString.hoodie;
         hoodiePrice = parseInt(hoodieString.priceOfHoodie);
         hoodieQuantity = parseInt(hoodieString.quant);
-        const hoodieList = document.getElementById('hoodieContainer'); // Используйте уникальный идентификатор
+        const hoodieList = document.getElementById('hoodieContainer');
         hoodieList.innerHTML = '';
 
         let hoodieDiv = document.createElement('div');
         hoodieDiv.innerHTML = `
-        <p>Hoodie: <label data-type="text">${hoodieString.hoodie}</label></p>
-        <p>Price: <label data-type="number">${hoodieString.priceOfHoodie}</label></p>
-        <p>Photo: <img src="${hoodieString.photoOfHoodie}" id="hoodieimg"></p>
+                        <div class="row text-center align-items-center">
+                            <div class="col-lg-3 col-sm-12">
+                                <img class="w-100 card-img" src="${hoodieString.photoOfHoodie}" alt="Card image cap" onmouseover="largeimg1()" id="photo1" onmouseleave="smallimg1()">
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <p class="card-text"> ${hoodieString.hoodie} </p>
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <h5 class="card-title" id ="shorti"><span id="price3">${hoodieString.priceOfHoodie}</span>$</h5>
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <h5 class="card-title" id ="shorti"><span id="price3">${hoodieString.size}</span>:Size</h5>
+                            </div>
+                        </div>
     `;
         hoodieList.appendChild(hoodieDiv);
     } else {
@@ -33,14 +44,30 @@ window.addEventListener('load', function () {
         document.getElementById('resultShorti').innerHTML = shortiString.shorti;
         shortiPrice = parseInt(shortiString.shortiPrice);
         shortiQuantity = parseInt(shortiString.quant);
-        const shortiList = document.getElementById('shortiContainer'); // Используйте уникальный идентификатор
+        const shortiList = document.getElementById('shortiContainer');
         shortiList.innerHTML = '';
-
+        // let shortiImg = document.getElementById('pictures');
+        // shortiImg.innerHTML = '';
+        // let shortiImgi = document.createElement('div');
+        // shortiImgi.innerHTML = '<img src="${shortiString.photoShorti}" alt="picture" class="img-fluid" width="55px">';
+        // shortiImg.appendChild(shortiImgi);
         let shortiDiv = document.createElement('div');
         shortiDiv.innerHTML = `
-        <p>Shorti: <label data-type="text">${shortiString.shorti}</label></p>
-        <p>Price: <label data-type="text">${shortiString.shortiPrice}</label></p>
-        <p>Photo: <img src="${shortiString.photoShorti}" id="shortiimg"></p>
+                        <div class="row text-center align-items-center">
+                            <div class="col-lg-3 col-sm-12">
+                                <img class="w-100 card-img" src="${shortiString.photoShorti}" alt="Card image cap" onmouseover="largeimg()" id="photo" onmouseleave="smallimg()">
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <p class="card-text"> ${shortiString.shorti} </p>
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <h5 class="card-title" id ="shorti"><span id="price3">${shortiString.shortiPrice}</span>$</h5>
+                            </div>
+                            <div class="col-lg-3 col-sm-12">
+                                <h5 class="card-title" id ="shorti"><span id="price3">${shortiString.size}</span>:Size</h5>
+                            </div>
+                        </div>
+        
     `;
         shortiList.appendChild(shortiDiv);
     } else {
@@ -62,11 +89,30 @@ window.addEventListener('load', function () {
     total = hoodiePrice + shortiPrice;
     var dostavka = document.getElementById("dostavka").textContent.replace(/\$/g, "").trim();
     var final = total + parseInt(dostavka);
+
     document.getElementById('count').innerHTML = totalQuantity.toString();
     document.getElementById('total').innerHTML = total.toString() + '$';
     document.getElementById("skidka").textContent = skidka;
     document.getElementById("final").textContent = final + "$" + " + " + skidka;
 
 });
+function largeimg() {
+    document.getElementById('photo').style = "box-shadow: 0 0 100vw 100vw rgba(0, 0, 0, 0.7);\n" +
+        "   transform: scale(1.3);   transition: .3s ease;";
+}
+function smallimg() {
+    document.getElementById('photo').style = "box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\n" +
+        "   transform: scale(1);   transition: .3s ease;";
+}
+
+function largeimg1() {
+    document.getElementById('photo1').style = "box-shadow: 0 0 100vw 100vw rgba(0, 0, 0, 0.7);\n" +
+        "   transform: scale(1.3);   transition: .3s ease;";
+}
+function smallimg1() {
+    document.getElementById('photo1').style = "box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);\n" +
+        "   transform: scale(1);   transition: .3s ease;";
+}
+
 
 

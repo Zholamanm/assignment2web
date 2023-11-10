@@ -1,7 +1,7 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    var username = document.getElementById('username').value;
+    var username = document.getElementById('username').value === "admin" ? alert("NO") : alert("YES") ;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password-input').value;
 
@@ -14,7 +14,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Проверяем, существует ли уже пользователь с таким же username или email
     var userExists = users.some(function(user) {
         return user.username === newUser.username || user.email === newUser.email;
     });
@@ -24,10 +23,8 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         return;
     }
 
-    // Добавляем нового пользователя в массив
     users.push(newUser);
 
-    // Здесь мы сохраняем обновленный массив users, а не одиночный объект user
     localStorage.setItem('users', JSON.stringify(users));
     alert('Регистрация успешна!');
     window.location.href='index.html';
@@ -77,15 +74,9 @@ addEventListener("DOMContentLoaded", (event) => {
                 element.classList.remove("wrong");
                 element.classList.add("good");
             });
-
-            // passwordAlert.classList.remove("alert-warning");
-            // passwordAlert.classList.add("alert-success");
         } else {
             password.classList.remove("is-valid");
             password.classList.add("is-invalid");
-
-            // passwordAlert.classList.add("alert-warning");
-            // passwordAlert.classList.remove("alert-success");
         }
     });
 

@@ -45,8 +45,17 @@
                         <p class="card-text" id="hoodie">Новый джэмпер высшего качества</p>
                         <span class="price" id="price1">Цена: $10</span>
                         <a href="#" class="btn btn-primary" onclick="addToBusketHoodie(event);">Add to Cart</a>
-                        <input type="text" id="hoodiequant" value="1">
-
+                        <input type="text" id="hoodiequant" style="width: 50px;" value="1">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Size
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" id="smallsize" onclick="hoodieSize('S')">S</a></li>
+                                <li><a class="dropdown-item" href="#" id="mediumsize" onclick="hoodieSize('M')">M</a></li>
+                                <li><a class="dropdown-item" href="#" id="largesize"onclick="hoodieSize('L')">L</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +67,17 @@
                         <p class="card-text" id="shorti">Шорты</p>
                         <span class="price" id="shortiPrice">Цена: $5</span>
                         <a href="#" class="btn btn-primary" onclick="addToBusketShorti(event);">Add to Cart</a>
-                        <input type="text" id="shortiquant" value="1">
+                        <input type="text" id="shortiquant" style="width: 50px;" value="1">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Size
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#" id="smallsize1" onclick="shortiSize('S')">S</a></li>
+                                <li><a class="dropdown-item" href="#" id="mediumsize1" onclick="shortiSize('M')">M</a></li>
+                                <li><a class="dropdown-item" href="#" id="largesize1" onclick="shortiSize('L')">L</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

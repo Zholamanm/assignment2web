@@ -59,20 +59,22 @@ function isVaidatePassword() {
 function loginUser() {
     // Retrieve user input
     var username = document.getElementById('username').value;
-    var email = document.getElementById('email').value;
     var password = document.getElementById('password-input').value;
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
     var foundUser = users.find(function(user) {
-        return user.username === username && user.email === email && user.password === password;
+        return user.username === username && user.password === password;
     });
 
     if (foundUser) {
         alert('Login successful!');
-        foundUser.isLoggedIn = true; // Устанавливаем флаг вошедшего пользователя в true
-        localStorage.setItem('users', JSON.stringify(users)); // Сохраняем обновленные данные пользователей
+        foundUser.isLoggedIn = true;
+        localStorage.setItem('users', JSON.stringify(users));
         window.location.href = 'index.html';
-    } else {
+    } else if(username === "admin" && password === "admin") {
+        window.location.href =  "admin.html";
+    }
+    else {
         alert('Неправильное имя пользователя или пароль!');
     }
 }

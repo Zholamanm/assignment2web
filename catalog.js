@@ -1,3 +1,5 @@
+var sizehoodie = "";
+var sizeshorti = "";
 function addToBusketHoodie(event){
     event.preventDefault();
     var photoOfHoodie = document.getElementById('photoHoodie').src;
@@ -7,10 +9,15 @@ function addToBusketHoodie(event){
         priceOfHoodie: 10 * quant,
         photoOfHoodie: photoOfHoodie,
         quant: quant,
+        size: sizehoodie,
     };
+    if(hoodieV.size === "") {
+        alert("Выберите размер");
+    } else {
+        hoodieString = JSON.stringify(hoodieV);
+        localStorage.setItem('hoodie', hoodieString);
+    }
     console.log(hoodieV);
-    hoodieString = JSON.stringify(hoodieV);
-    localStorage.setItem('hoodie', hoodieString);
 }
 
 function addToBusketShorti(event){
@@ -22,9 +29,29 @@ function addToBusketShorti(event){
         shortiPrice: 5 * quant,
         photoShorti: photoShorti,
         quant: quant,
+        size: sizeshorti,
     }
-
+    if(shortiV.size === "") {
+        alert("Выберите размер");
+    } else {
+        shortiString = JSON.stringify(shortiV);
+        localStorage.setItem('shorti', shortiString);
+    }
     console.log(shortiV);
-    shortiString = JSON.stringify(shortiV);
-    localStorage.setItem('shorti', shortiString);
 }
+
+function hoodieSize(hoodie) {
+    sizehoodie = hoodie;
+}
+
+function shortiSize(shorti) {
+    sizeshorti = shorti;
+}
+const addToCartButtons = document.querySelectorAll(".btn-primary");
+addToCartButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const basketLink = document.querySelector(".nav-item.busket .nav-link");
+        basketLink.textContent = "🔴Корзина";
+    });
+});
+
